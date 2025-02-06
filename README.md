@@ -3,4 +3,4 @@ This repo is a barebones setup for a dark-mode toggle system which reads the use
 
 It was put together as plainly as possible to show how dark-mode can be implemented without the noise of other stuff such as authentication systems or database setups.
 
-The demo largely follows [Matt Stobbs methodology](https://www.mattstobbs.com/remix-dark-mode-2024/) and utilizes the [client-hints](https://github.com/epicweb-dev/client-hints) package by Kent C. Dodds.
+The demo largely follows [Matt Stobbs methodology](https://www.mattstobbs.com/remix-dark-mode-2024/) and utilizes the [client-hints](https://github.com/epicweb-dev/client-hints) package by Kent C. Dodds as well as the [cookie parser and serializer](https://github.com/jshttp/cookie) by jshttp.
