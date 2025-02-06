@@ -1,6 +1,7 @@
 import { useId } from "react"
+import type { LoaderFunctionArgs } from "react-router"
 import type { ActionFunctionArgs } from "react-router"
-import { useFetcher } from "react-router"
+import { redirect, useFetcher } from "react-router"
 import { useHints } from "~/utils/client-hints"
 import { useRequestInfo } from "~/utils/request-info"
 import { setTheme, type Theme } from "~/utils/theme.server"
@@ -12,6 +13,10 @@ export function useTheme() {
 		selected: requestInfo.userPrefs.theme,
 		hinted: hints.theme
 	}
+}
+
+export async function loader({ request }: LoaderFunctionArgs) {
+	return redirect("/")
 }
 
 export async function action({ request }: ActionFunctionArgs) {
