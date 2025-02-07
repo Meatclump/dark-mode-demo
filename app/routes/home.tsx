@@ -20,7 +20,7 @@ export default function Home() {
 				<div className="flex flex-col gap-3 items-center border-b border-slate-500 dark:border-slate-700 p-3 transition-colors duration-500">
 					<ul className="text-lg list-disc list-inside text-slate-600 dark:text-slate-300 transition-colors duration-500">
 						<li>Automatically detects user settings</li>
-						<li>No flicker on initial page load</li>
+						<li>No flicker on page load</li>
 						<li>Remembers user selection</li>
 						<li>Progressive enhancement when JavaScript is disabled</li>
 					</ul>
