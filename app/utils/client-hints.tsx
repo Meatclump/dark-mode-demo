@@ -3,8 +3,10 @@
  * are needed by the server, but are only known by the browser.
  */
 import { getHintUtils } from "@epic-web/client-hints";
-import { clientHint as colourSchemeHint } from "@epic-web/client-hints/color-scheme";
+import { clientHint as colourSchemeHint, subscribeToSchemeChange } from "@epic-web/client-hints/color-scheme";
 import { useRequestInfo } from "./request-info";
+import { useRevalidator } from "react-router";
+import { useEffect } from "react";
 
 const hintsUtils = getHintUtils({ theme: colourSchemeHint })
 export const getHints = hintsUtils.getHints
@@ -15,6 +17,8 @@ export const getHints = hintsUtils.getHints
  * inaccurate value.
  */
 export function ClientHintCheck() {
+	const { revalidate } = useRevalidator()
+	useEffect(() => subscribeToSchemeChange(() => revalidate()), [revalidate])
 	return <script dangerouslySetInnerHTML={{ __html:hintsUtils.getClientHintCheckScript() }} />
 }
 
