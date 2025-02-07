@@ -80,7 +80,7 @@ export function ThemeSwitch() {
 				type="submit"
 				name="theme"
 				value={nextMode}
-				className="flex rounded px-2 py-1 border border-slate-500 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 hover:text-slate-600 hover:dark:bg-slate-600 hover:dark:text-slate-100 dark:border-slate-500 text-slate-500 dark:text-slate-300 cursor-pointer transition-[background-color,color] focus:outline-2 focus:outline-offset-2 focus:outline-violet-500"
+				className="flex rounded px-2 py-1 border border-slate-500 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 hover:text-slate-600 hover:dark:bg-slate-600 hover:dark:text-slate-100 dark:border-slate-500 text-slate-500 dark:text-slate-300 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-violet-500"
 			>
 				{modeLabel[mode]}
 			</button>
