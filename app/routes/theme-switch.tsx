@@ -1,7 +1,7 @@
 import { useId } from "react"
 import type { LoaderFunctionArgs } from "react-router"
 import type { ActionFunctionArgs } from "react-router"
-import { redirect, useFetcher } from "react-router"
+import { redirect, useFetcher, useFetchers } from "react-router"
 import { useHints } from "~/utils/client-hints"
 import { useRequestInfo } from "~/utils/request-info"
 import { setTheme, type Theme } from "~/utils/theme.server"
@@ -9,9 +9,27 @@ import { setTheme, type Theme } from "~/utils/theme.server"
 export function useTheme() {
 	const hints = useHints()
 	const requestInfo = useRequestInfo()
+	const optimisticMode = useOptimisticThemeMode()
+	if (optimisticMode) return {
+		selected: optimisticMode !== 'system'
+			? optimisticMode as Theme
+			: null,
+		hinted: hints.theme
+	}
 	return {
 		selected: requestInfo.userPrefs.theme,
 		hinted: hints.theme
+	}
+}
+
+export function useOptimisticThemeMode() {
+	const fetchers = useFetchers()
+	const themeFetcher = fetchers.find(f => f.formAction === '/theme-switch')
+	if (themeFetcher && themeFetcher.formData) {
+		const data = Object.fromEntries(themeFetcher.formData)
+		if (data && data.theme) {
+			return data.theme
+		}
 	}
 }
 
