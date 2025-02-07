@@ -14,3 +14,6 @@ For more information and a more detailed explanation of client-hints, [go here](
 In react router, the form data is available to us while the form request is in flight. This means that we can optimistically change the theme of our app without having to wait for our form submission to complete. This primarily benefits users with slow network speeds, but even with a fast connection the user experience is noticably reduced if you have to wait for a network request to complete before your theme updates.
 
 More information about Optimistic UI in React Router can be found [here](https://reactrouter.com/start/framework/pending-ui#optimistic-ui)
+
+## Progressive Enhancement
+This toggle also works if JavaScript is disabled. However, the switching is done with a standard form post request rather than a fetch.

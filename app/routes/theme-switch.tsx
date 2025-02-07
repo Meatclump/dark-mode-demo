@@ -52,6 +52,9 @@ export async function action({ request }: ActionFunctionArgs) {
 		headers: { 'set-cookie': setTheme(newThemeValue) },
 	}
 
+	const redirectTo = formData.redirectTo as string
+	if (redirectTo) return redirect(redirectTo, responseInit)
+
 	return Response.json({ result: newThemeValue }, responseInit)
 }
 
@@ -59,6 +62,7 @@ export function ThemeSwitch() {
 	const { selected } = useTheme()
 	const fetcher = useFetcher()
 	const id = useId()
+	const requestInfo = useRequestInfo()
 
 	const mode = selected ?? 'system'
 	const nextMode = mode === 'system'
@@ -80,7 +84,11 @@ export function ThemeSwitch() {
 			>
 				{modeLabel[mode]}
 			</button>
-			<fetcher.Form id={id} method="POST" action="/theme-switch" />
+			<fetcher.Form id={id} method="POST" action="/theme-switch">
+				{typeof window === "undefined" &&
+					<input type="hidden" name="redirectTo" value={requestInfo.path} />
+				}
+			</fetcher.Form>
 		</>
 	)
 }

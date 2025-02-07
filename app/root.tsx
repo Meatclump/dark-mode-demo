@@ -18,9 +18,8 @@ export async function loader({ request }: LoaderFunctionArgs) {
 	return ({
 		requestInfo: {
 			hints: getHints(request),
-			userPrefs: {
-				theme: getTheme(request)
-			}
+			userPrefs: { theme: getTheme(request) },
+			path: new URL(request.url).pathname
 		}
 	})
 }
