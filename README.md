@@ -16,4 +16,4 @@ In react router, the form data is available to us while the form request is in f
 More information about Optimistic UI in React Router can be found [here](https://reactrouter.com/start/framework/pending-ui#optimistic-ui)
 
 ## Progressive Enhancement
-This toggle also works if JavaScript is disabled. However, the switching is done with a standard form post request rather than a fetch.
+This toggle also works if JavaScript is disabled. However, the switching is then done with a standard form post request rather than a fetch.
