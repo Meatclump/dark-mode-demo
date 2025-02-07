@@ -34,7 +34,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className="flex flex-col gap-3 items-center p-3">
-					<a href="https://github.com/Meatclump/dark-mode-demo" title="See on GitHub" className="rounded-full">
+					<a href="https://github.com/Meatclump/dark-mode-demo" title="See on GitHub" className="rounded-full focus:outline-2 focus:outline-offset-2 focus:outline-violet-500">
 						<img
 							alt="See on GitHub"
 							className="w-8 h-8 brightness-0 invert-25 dark:invert-100 hover:invert-0 hover:dark:invert-75 transition-[filter]"
